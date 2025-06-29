@@ -7,6 +7,7 @@ from datetime import time
 
 st.set_page_config(
     page_title="Taxi Fare Prediction",
+    page_icon="assets/taxi.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -16,7 +17,20 @@ with open('best_model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # Title
-st.title("Taxi Fare Prediction (XGBoost)")
+st.markdown("""
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+    .custom-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 42px;
+        color: #00CED1;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    </style>
+    <div class="custom-title">🚖 Taxi Fare Prediction</div>
+""", unsafe_allow_html=True)
 
 # Create three columns evenly spaced
 col1, col2, col3 = st.columns(3)
@@ -59,8 +73,19 @@ with col3:
     tip_amount = st.number_input("Tip Amount", min_value=0.0, format="%.2f")
     tolls_amount = st.number_input("Tolls Amount", min_value=0.0, format="%.2f")
 
-# Prediction Section
-st.markdown("---")
+st.markdown("""
+    <style>
+        div.stButton > button {
+            width: 100%;
+            height: 45px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #44aac7;
+            color: white;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 if st.button("Predict Fare"):
     input_data = pd.DataFrame([{
         "passenger_count": passenger_count,
