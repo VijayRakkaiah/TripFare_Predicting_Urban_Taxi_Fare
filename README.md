@@ -66,7 +66,6 @@ To run this project locally:
 ```bash
 # 1. Clone the repository
 git clone https://github.com/VijayRakkaiah/TripFare_Predicting_Urban_Taxi_Fare.git
-cd taxi-fare-prediction
 
 # 2. Create a virtual environment (optional but recommended)
 python -m venv .venv
